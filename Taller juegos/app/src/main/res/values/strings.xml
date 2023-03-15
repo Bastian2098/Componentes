@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Juegos</string>
+    <string name="inserte_nombre_de_cada_jugador">Inserte nombre de cada jugador</string>
+    <string name="a_jugar">¡A JUGAR!</string>
+    <string name="jugar">JUGAR</string>
+    <string name="jugador_2">Jugador 2</string>
+    <string name="jugador_1">Jugador 1</string>
+    <string name="todo">TODO</string>
+</resources>
