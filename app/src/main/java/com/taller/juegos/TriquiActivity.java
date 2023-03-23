@@ -234,51 +234,99 @@ public void borrar(){
     public void quiengana(){
         if(matriz[0]==1 && matriz[1]==1 && matriz[2]==1){
             winPlayerOne=true;
+            img1.setImageResource(R.drawable.cruz_ganadora);
+            img2.setImageResource(R.drawable.cruz_ganadora);
+            img3.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[3]==1 && matriz[4]==1 && matriz[5]==1){
             winPlayerOne=true;
+            img4.setImageResource(R.drawable.cruz_ganadora);
+            img5.setImageResource(R.drawable.cruz_ganadora);
+            img6.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[6]==1 && matriz[7]==1 && matriz[8]==1){
             winPlayerOne=true;
+            img7.setImageResource(R.drawable.cruz_ganadora);
+            img8.setImageResource(R.drawable.cruz_ganadora);
+            img9.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[0]==1 && matriz[3]==1 && matriz[6]==1){
             winPlayerOne=true;
+            img1.setImageResource(R.drawable.cruz_ganadora);
+            img4.setImageResource(R.drawable.cruz_ganadora);
+            img7.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[1]==1 && matriz[4]==1 && matriz[7]==1){
             winPlayerOne=true;
+            img2.setImageResource(R.drawable.cruz_ganadora);
+            img4.setImageResource(R.drawable.cruz_ganadora);
+            img8.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[2]==1 && matriz[5]==1 && matriz[8]==1){
             winPlayerOne=true;
+            img3.setImageResource(R.drawable.cruz_ganadora);
+            img5.setImageResource(R.drawable.cruz_ganadora);
+            img9.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[0]==1 && matriz[4]==1 && matriz[8]==1){
             winPlayerOne=true;
+            img1.setImageResource(R.drawable.cruz_ganadora);
+            img5.setImageResource(R.drawable.cruz_ganadora);
+            img9.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[2]==1 && matriz[4]==1 && matriz[6]==1){
             winPlayerOne=true;
+            img3.setImageResource(R.drawable.cruz_ganadora);
+            img5.setImageResource(R.drawable.cruz_ganadora);
+            img7.setImageResource(R.drawable.cruz_ganadora);
         }
         if(matriz[0]==2 && matriz[1]==2 && matriz[2]==2){
             WinPlayertwo=true;
+            img1.setImageResource(R.drawable.circulo_ganador);
+            img2.setImageResource(R.drawable.circulo_ganador);
+            img3.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[3]==2 && matriz[4]==2 && matriz[5]==2){
             WinPlayertwo=true;
+            img4.setImageResource(R.drawable.circulo_ganador);
+            img5.setImageResource(R.drawable.circulo_ganador);
+            img6.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[6]==2 && matriz[7]==2 && matriz[8]==2){
             WinPlayertwo=true;
+            img7.setImageResource(R.drawable.circulo_ganador);
+            img8.setImageResource(R.drawable.circulo_ganador);
+            img9.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[0]==2 && matriz[3]==2 && matriz[6]==2){
             WinPlayertwo=true;
+            img1.setImageResource(R.drawable.circulo_ganador);
+            img4.setImageResource(R.drawable.circulo_ganador);
+            img7.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[1]==2 && matriz[4]==2 && matriz[7]==2){
             WinPlayertwo=true;
+            img2.setImageResource(R.drawable.circulo_ganador);
+            img5.setImageResource(R.drawable.circulo_ganador);
+            img8.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[2]==2 && matriz[5]==2 && matriz[8]==2){
             WinPlayertwo=true;
+            img3.setImageResource(R.drawable.circulo_ganador);
+            img6.setImageResource(R.drawable.circulo_ganador);
+            img9.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[0]==2 && matriz[4]==2 && matriz[8]==2){
             WinPlayertwo=true;
+            img1.setImageResource(R.drawable.circulo_ganador);
+            img5.setImageResource(R.drawable.circulo_ganador);
+            img9.setImageResource(R.drawable.circulo_ganador);
         }
         if(matriz[2]==2 && matriz[4]==2 && matriz[6]==2){
             WinPlayertwo=true;
+            img3.setImageResource(R.drawable.circulo_ganador);
+            img5.setImageResource(R.drawable.circulo_ganador);
+            img7.setImageResource(R.drawable.circulo_ganador);
         }
     }
 }
