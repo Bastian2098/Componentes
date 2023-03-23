@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Juegos</string>
+    <string name="inserte_nombre_de_cada_jugador">Inserte nombre de cada jugador</string>
+    <string name="a_jugar">¡A JUGAR!</string>
+    <string name="jugar">JUGAR</string>
+    <string name="image">Imagen temporal</string>
+    <string name="button_memory">MEMORY</string>
+    <string name="button_triqui">TRIQUI</string>
+    <string name="button_credits">CREDITOS</string>
+    <string name="field_jugador1">JUGADOR 1</string>
+    <string name="field_jugador2">JUGADOR 2</string>
+    <string name="button_a">A</string>
+    <string name="button_b">B</string>
+    <string name="button_c">C</string>
+    <string name="button_d">D</string>
+    <string name="button_e">E</string>
+    <string name="button_f">F</string>
+    <string name="button_g">G</string>
+    <string name="button_h">H</string>
+    <string name="button_i">I</string>
+</resources>
