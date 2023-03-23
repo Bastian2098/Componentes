@@ -17,8 +17,6 @@ public class MemoryActivity extends AppCompatActivity {
     private int turn, sizeMemory = 1;
     private String playersOneGame;
     private String playersTwoGame,playerAux;
-    private ArrayList game = new ArrayList();
-    private ListActivity info = new ListActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

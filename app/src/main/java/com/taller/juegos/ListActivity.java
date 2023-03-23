@@ -41,8 +41,6 @@ public class ListActivity extends AppCompatActivity {
         String namePlayer2 = info.getString("Jugador 2");
         TextView textJugador1 = findViewById(R.id.textView3);
         TextView textJugador2 = findViewById(R.id.textView4);
-        TextView textWinsOne = findViewById(R.id.labelWinsOne);
-        TextView textWinsTwo = findViewById(R.id.labelWinsTwo);
         textJugador1.setText(namePlayer1);
         textJugador2.setText(namePlayer2);
         Button buttonMemory = findViewById(R.id.button2);
@@ -56,6 +54,8 @@ public class ListActivity extends AppCompatActivity {
         });
         buttonTriqui.setOnClickListener(view -> {
             Intent intent = new Intent(ListActivity.this, TriquiActivity.class);
+            intent.putExtra("Jugador 1", namePlayer1);
+            intent.putExtra("Jugador 2", namePlayer2);
             startActivity(intent);
         });
         buttonCreditos.setOnClickListener(view -> {
