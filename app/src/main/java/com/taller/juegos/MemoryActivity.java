@@ -4,6 +4,7 @@ import static com.taller.juegos.utils.Util.getPlayerTurn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -110,6 +111,9 @@ public class MemoryActivity extends AppCompatActivity {
                         textPlayer1.setText(players[0] + " has perdido");
                         textPlayer2.setText(players[1] + " HAS GANADO");
                         //info.setWinsTwo(info.getWinsTwo());
+                        esperar();
+                        Intent intent=new Intent(this,ListActivity.class);
+                        startActivity(intent);
                     }
                 } else {
                     playerAux = playersOneGame;
@@ -131,6 +135,10 @@ public class MemoryActivity extends AppCompatActivity {
                         textPlayer1.setText(players[0] + " HAS GANADO");
                         textPlayer2.setText(players[1] + " has perdido");
                         //info.setWinsOne(info.getWinsOne() + 1);
+                        esperar();
+                        Intent intent=new Intent(this,ListActivity.class);
+                        startActivity(intent);
+
                     }
                 } else {
                     playerAux = playersTwoGame;
@@ -154,6 +162,15 @@ public class MemoryActivity extends AppCompatActivity {
                 textPlayer2.setText(players[1] + " es tu turno");
                 break;
         }
+    }
+    private void esperar(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+
+        }
+
     }
 
 }

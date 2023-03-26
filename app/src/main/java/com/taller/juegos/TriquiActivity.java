@@ -15,7 +15,7 @@ public class TriquiActivity extends AppCompatActivity implements View.OnClickLis
     ImageView img1,img2,img3,img4,img5,img6,img7,img8,img9;
     boolean winPlayerOne,WinPlayertwo,notirar=false;
     int tiradas=0,aleatorio=0;
-    private String[] players;
+
     private static int tu=0,yo=0,empate=0;
     TextView marcador1,marcador2,marcador;
     int jugador=1;
@@ -24,8 +24,8 @@ public class TriquiActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_triqui);
-        Bundle info = getIntent().getExtras();
-        players = new String[]{info.getString("Jugador 1"), info.getString("Jugador 2")};
+        //Bundle info = getIntent().getExtras();
+        //players = new String[]{info.getString("Jugador 1"), info.getString("Jugador 2")};
         img1=(ImageView) findViewById(R.id.img1);
         img2=(ImageView) findViewById(R.id.img2);
         img3=(ImageView) findViewById(R.id.img3);
@@ -64,11 +64,13 @@ public void onClick(View v){
                     img1.setImageResource(R.drawable.equis);
                     matriz[0]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[0]==0&&jugador==2){
                     img1.setImageResource(R.drawable.circulo);
                     matriz[0]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img2:
@@ -76,11 +78,13 @@ public void onClick(View v){
                     img2.setImageResource(R.drawable.equis);
                     matriz[1]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[1]==0&&jugador==2){
                     img2.setImageResource(R.drawable.circulo);
                     matriz[1]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img3:
@@ -88,11 +92,13 @@ public void onClick(View v){
                     img3.setImageResource(R.drawable.equis);
                     matriz[2]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[2]==0&&jugador==2){
                     img3.setImageResource(R.drawable.circulo);
                     matriz[2]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img4:
@@ -100,11 +106,13 @@ public void onClick(View v){
                     img4.setImageResource(R.drawable.equis);
                     matriz[3]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[3]==0&&jugador==2){
                     img4.setImageResource(R.drawable.circulo);
                     matriz[3]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img5:
@@ -112,11 +120,13 @@ public void onClick(View v){
                     img5.setImageResource(R.drawable.equis);
                     matriz[4]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[4]==0&&jugador==2){
                     img5.setImageResource(R.drawable.circulo);
                     matriz[4]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img6:
@@ -124,11 +134,13 @@ public void onClick(View v){
                     img6.setImageResource(R.drawable.equis);
                     matriz[5]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[5]==0&&jugador==2){
                     img6.setImageResource(R.drawable.circulo);
                     matriz[5]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img7:
@@ -136,11 +148,13 @@ public void onClick(View v){
                     img7.setImageResource(R.drawable.equis);
                     matriz[6]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[6]==0&&jugador==2){
                     img7.setImageResource(R.drawable.circulo);
                     matriz[6]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img8:
@@ -148,11 +162,13 @@ public void onClick(View v){
                     img8.setImageResource(R.drawable.equis);
                     matriz[7]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[7]==0&&jugador==2){
                     img8.setImageResource(R.drawable.circulo);
                     matriz[7]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
             case    R.id.img9:
@@ -160,11 +176,13 @@ public void onClick(View v){
                     img9.setImageResource(R.drawable.equis);
                     matriz[8]=1;
                     tiro=true;
+                    tiradas++;
                 }
                 if(matriz[8]==0&&jugador==2){
                     img9.setImageResource(R.drawable.circulo);
                     matriz[8]=2;
                     tiro=true;
+                    tiradas++;
                 }
                 break;
         }
@@ -172,7 +190,6 @@ public void onClick(View v){
             if(jugador==1){
                 jugador=2;
             }else {jugador=1;}
-            tiradas++;
             quiengana();
             checa();
         }
@@ -203,18 +220,19 @@ public void borrar(){
         String text2 = String.valueOf(yo);
         String text3 = String.valueOf(empate);
         marcador.setText("empate: "+text3);
-        marcador1.setText(players[0]+": "+text1);
-        marcador2.setText(players[1]+": "+text2);
+        marcador1.setText("puntos jugador 1: "+text1);
+        marcador2.setText("puntos jugador 2: "+text2);
     }
     public void checa(){
         if(winPlayerOne==true) {
-            Toast toast = Toast.makeText(this, "Ha ganado "+players[0], Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this,"jugador 1 Ha ganado",Toast.LENGTH_LONG);
             toast.show();
             tu++;
             reiniciaActivity(this);
+
         }
         if(WinPlayertwo==true) {
-            Toast toast = Toast.makeText(this, "Ha ganado "+players[1], Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this,"jugador 2 Ha ganado",Toast.LENGTH_LONG);
             toast.show();
             yo++;
             reiniciaActivity(this);
@@ -223,6 +241,7 @@ public void borrar(){
             Toast toast = Toast.makeText(this,"Empate",Toast.LENGTH_LONG);
             toast.show();
             empate++;
+            reiniciaActivity(this);
         }
     }
     public static void reiniciaActivity(Activity actividad){
@@ -237,96 +256,192 @@ public void borrar(){
             img1.setImageResource(R.drawable.cruz_ganadora);
             img2.setImageResource(R.drawable.cruz_ganadora);
             img3.setImageResource(R.drawable.cruz_ganadora);
+            img4.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[3]==1 && matriz[4]==1 && matriz[5]==1){
             winPlayerOne=true;
             img4.setImageResource(R.drawable.cruz_ganadora);
             img5.setImageResource(R.drawable.cruz_ganadora);
             img6.setImageResource(R.drawable.cruz_ganadora);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[6]==1 && matriz[7]==1 && matriz[8]==1){
             winPlayerOne=true;
             img7.setImageResource(R.drawable.cruz_ganadora);
             img8.setImageResource(R.drawable.cruz_ganadora);
             img9.setImageResource(R.drawable.cruz_ganadora);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[0]==1 && matriz[3]==1 && matriz[6]==1){
             winPlayerOne=true;
             img1.setImageResource(R.drawable.cruz_ganadora);
             img4.setImageResource(R.drawable.cruz_ganadora);
             img7.setImageResource(R.drawable.cruz_ganadora);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[1]==1 && matriz[4]==1 && matriz[7]==1){
             winPlayerOne=true;
             img2.setImageResource(R.drawable.cruz_ganadora);
             img4.setImageResource(R.drawable.cruz_ganadora);
             img8.setImageResource(R.drawable.cruz_ganadora);
+            img1.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[2]==1 && matriz[5]==1 && matriz[8]==1){
             winPlayerOne=true;
             img3.setImageResource(R.drawable.cruz_ganadora);
             img5.setImageResource(R.drawable.cruz_ganadora);
             img9.setImageResource(R.drawable.cruz_ganadora);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[0]==1 && matriz[4]==1 && matriz[8]==1){
             winPlayerOne=true;
             img1.setImageResource(R.drawable.cruz_ganadora);
             img5.setImageResource(R.drawable.cruz_ganadora);
             img9.setImageResource(R.drawable.cruz_ganadora);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[2]==1 && matriz[4]==1 && matriz[6]==1){
             winPlayerOne=true;
             img3.setImageResource(R.drawable.cruz_ganadora);
             img5.setImageResource(R.drawable.cruz_ganadora);
             img7.setImageResource(R.drawable.cruz_ganadora);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[0]==2 && matriz[1]==2 && matriz[2]==2){
             WinPlayertwo=true;
             img1.setImageResource(R.drawable.circulo_ganador);
             img2.setImageResource(R.drawable.circulo_ganador);
             img3.setImageResource(R.drawable.circulo_ganador);
+            img4.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[3]==2 && matriz[4]==2 && matriz[5]==2){
             WinPlayertwo=true;
             img4.setImageResource(R.drawable.circulo_ganador);
             img5.setImageResource(R.drawable.circulo_ganador);
             img6.setImageResource(R.drawable.circulo_ganador);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[6]==2 && matriz[7]==2 && matriz[8]==2){
             WinPlayertwo=true;
             img7.setImageResource(R.drawable.circulo_ganador);
             img8.setImageResource(R.drawable.circulo_ganador);
             img9.setImageResource(R.drawable.circulo_ganador);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[0]==2 && matriz[3]==2 && matriz[6]==2){
             WinPlayertwo=true;
             img1.setImageResource(R.drawable.circulo_ganador);
             img4.setImageResource(R.drawable.circulo_ganador);
             img7.setImageResource(R.drawable.circulo_ganador);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[1]==2 && matriz[4]==2 && matriz[7]==2){
             WinPlayertwo=true;
             img2.setImageResource(R.drawable.circulo_ganador);
             img5.setImageResource(R.drawable.circulo_ganador);
             img8.setImageResource(R.drawable.circulo_ganador);
+            img1.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[2]==2 && matriz[5]==2 && matriz[8]==2){
             WinPlayertwo=true;
             img3.setImageResource(R.drawable.circulo_ganador);
             img6.setImageResource(R.drawable.circulo_ganador);
             img9.setImageResource(R.drawable.circulo_ganador);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img5.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[0]==2 && matriz[4]==2 && matriz[8]==2){
             WinPlayertwo=true;
             img1.setImageResource(R.drawable.circulo_ganador);
             img5.setImageResource(R.drawable.circulo_ganador);
             img9.setImageResource(R.drawable.circulo_ganador);
+            img2.setImageResource(R.drawable.color_fondo);
+            img3.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img7.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
         }
         if(matriz[2]==2 && matriz[4]==2 && matriz[6]==2){
             WinPlayertwo=true;
             img3.setImageResource(R.drawable.circulo_ganador);
             img5.setImageResource(R.drawable.circulo_ganador);
             img7.setImageResource(R.drawable.circulo_ganador);
+            img1.setImageResource(R.drawable.color_fondo);
+            img2.setImageResource(R.drawable.color_fondo);
+            img4.setImageResource(R.drawable.color_fondo);
+            img6.setImageResource(R.drawable.color_fondo);
+            img8.setImageResource(R.drawable.color_fondo);
+            img9.setImageResource(R.drawable.color_fondo);
         }
     }
 }
