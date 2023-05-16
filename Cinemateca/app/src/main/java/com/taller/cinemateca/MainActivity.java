@@ -26,15 +26,20 @@ public class MainActivity extends AppCompatActivity implements MySQLConnection.J
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EditText fieldEmail = findViewById(R.id.fieldEmail);
+        EditText fieldEmail = findViewById(R.id.fieldEmailRegister);
         EditText fieldPassword = findViewById(R.id.fieldPassword);
         Button buttonLogin = findViewById(R.id.buttonLogin);
         labelInfoLogin = findViewById(R.id.labelInfoLogin);
+        Button buttonSignUp = findViewById(R.id.buttonSignUp);
         MySQLConnection connection = new MySQLConnection(this);
         buttonLogin.setOnClickListener(view -> {
             intent = new Intent(MainActivity.this, MenuActivity.class);
             user = new User(fieldEmail.getText().toString(), fieldPassword.getText().toString());
             connection.executeQuery(user.logIn());
+        });
+        buttonSignUp.setOnClickListener(view -> {
+            intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 

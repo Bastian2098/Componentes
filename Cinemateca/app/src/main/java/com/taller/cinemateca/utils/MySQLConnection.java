@@ -5,7 +5,6 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +22,8 @@ public class MySQLConnection {
     public MySQLConnection(JSONResponseListener responseListener) {
         this.responseListener = responseListener;
     }
+
+    public MySQLConnection() { }
 
     public void executeQuery(String query) {
         String urlWithParams = BASE_URL + "?" + QUERY_PARAM + "=" + query;
@@ -69,6 +70,51 @@ public class MySQLConnection {
 
     public interface JSONResponseListener {
         void onResponse(JSONArray jsonArray);
+    }
+
+    public void executeInsert(String query) {
+        new InsertTask().execute(query);
+    }
+
+    private class InsertTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String query = params[0];
+            String urlWithParams = BASE_URL + "?" + QUERY_PARAM + "=" + query;
+
+            try {
+                URL url = new URL(urlWithParams);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                // Leer la respuesta del servidor
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String line;
+                StringBuilder response = new StringBuilder();
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                // Procesar la respuesta del servidor
+                String result = response.toString();
+                return result;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null && result.equals("{\"success\":true}")) {
+                // La inserción se realizó correctamente
+                Log.i("InsertStatus", "Inserción exitosa");
+            } else {
+                // Ocurrió un error durante la inserción
+                Log.e("InsertError", "Error en la inserción");
+            }
+        }
     }
 
 }
