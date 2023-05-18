@@ -24,12 +24,24 @@ public class User {
         return pass;
     }
 
-    public String logIn() {
-        return "SELECT correo, clave FROM administrador, usuario WHERE correo = '" + email + "' AND clave = '" + pass + "'";
+    public String logInUser() {
+        return "SELECT correo, clave FROM usuario WHERE correo = '" + email + "' AND clave = '" + pass + "'";
+    }
+
+    public String logInAdmin() {
+        return "SELECT correo, clave FROM administrador WHERE correo = '" + email + "' AND clave = '" + pass + "'";
     }
 
     public String register() {
         return "INSERT INTO usuario (correo, clave, nombre, apellido) VALUES ('" + name + "', '" + lastName + "', '" + email + "', '" + pass + "')";
+    }
+
+    public String changePassword() {
+        return "UPDATE usuario SET clave = '"+ pass +"' WHERE correo = '"+ email +"'";
+    }
+
+    public String getToken() {
+        return "SELECT idusuario FROM usuario WHERE correo = '" + name + "' AND clave = '" + lastName + "'";
     }
 
 }

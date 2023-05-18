@@ -35,17 +35,21 @@ public class MainActivity extends AppCompatActivity implements MySQLConnection.J
         buttonLogin.setOnClickListener(view -> {
             intent = new Intent(MainActivity.this, MenuActivity.class);
             user = new User(fieldEmail.getText().toString(), fieldPassword.getText().toString());
-            connection.executeQuery(user.logIn());
+            connection.executeQuery(user.logInUser());
+            connection.executeQuery(user.logInAdmin());
         });
         buttonSignUp.setOnClickListener(view -> {
             intent = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+        labelInfoLogin.setOnClickListener(view -> {
+
+        });
     }
 
     @Override
     public void onResponse(JSONArray jsonArray) {
-        if (jsonArray != null) {
+        if (jsonArray != null && jsonArray.length() != 0) {
             // La respuesta contiene datos
             // Puedes realizar el procesamiento necesario aquí
             // Por ejemplo, mostrar los datos en una lista o en campos de texto
@@ -55,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements MySQLConnection.J
                 String emailConsulted = item.getString("correo");
                 String passConsulted = item.getString("clave");
                 if (emailConsulted.equals(user.getEmail()) && passConsulted.equals(user.getPass())) {
-                    labelInfoLogin.setText("INICIO SESION");
                     startActivity(intent);
                     Log.i("INFORMACION FUNCIONAL", "Inicia sesion");
                 } else {
